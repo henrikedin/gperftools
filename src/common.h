@@ -72,7 +72,9 @@ static const size_t kMinAlign   = 16;
 // the thread cache allowance to avoid passing more free ranges to and from
 // central lists.  Also, larger pages are less likely to get freed.
 // These two factors cause a bounded increase in memory use.
-#if defined(TCMALLOC_32K_PAGES)
+#if defined(TCMALLOC_4K_PAGES)
+static const size_t kPageShift  = 12;
+#elif defined(TCMALLOC_32K_PAGES)
 static const size_t kPageShift  = 15;
 #elif defined(TCMALLOC_64K_PAGES)
 static const size_t kPageShift  = 16;

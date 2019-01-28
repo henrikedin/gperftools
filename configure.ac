@@ -109,7 +109,7 @@ AC_ARG_ENABLE([libunwind],
               [enable_libunwind="$default_enable_libunwind"])
 AC_ARG_WITH([tcmalloc-pagesize],
             [AS_HELP_STRING([--with-tcmalloc-pagesize],
-                            [Set the tcmalloc internal page size to 8K, 32K or 64K])],
+                            [Set the tcmalloc internal page size to 4K, 8K, 32K or 64K])],
             [],
             [with_tcmalloc_pagesize=$default_tcmalloc_pagesize])
 AC_ARG_WITH([tcmalloc-alignment],
@@ -119,6 +119,9 @@ AC_ARG_WITH([tcmalloc-alignment],
             [with_tcmalloc_alignment=$default_tcmalloc_alignment])
 
 case "$with_tcmalloc_pagesize" in
+  4)
+       AC_DEFINE(TCMALLOC_4K_PAGES, 1,
+                 [Define 4K of internal pages size for tcmalloc]);;
   8)
        #Default tcmalloc page size.
        ;;
