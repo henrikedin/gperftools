@@ -320,6 +320,9 @@
 /* the namespace where STL code like vector<> is defined */
 #define STL_NAMESPACE std
 
+/* Define max size of cached allocations for tcmalloc */
+/* #undef TCMALLOC_MAX_SIZE_KB */
+
 /* Define internal page size for tcmalloc as number of left bitshift */
 /* #undef TCMALLOC_PAGE_SIZE_SHIFT */
 
